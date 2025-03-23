@@ -104,6 +104,7 @@ export class WorkflowGenerator {
     // Validate all tools exist
     for (const node of workflowData.nodes) {
       if (!this.toolRegistry.hasTools(node.action.tools)) {
+        console.log("Available tools:", this.toolRegistry.getToolDefinitions());
         throw new Error(`Workflow contains undefined tools: ${node.action.tools}`);
       }
     }

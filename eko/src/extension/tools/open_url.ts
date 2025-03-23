@@ -40,13 +40,14 @@ export class OpenUrl implements Tool<OpenUrlParam, OpenUrlResult> {
       throw new Error('Invalid parameters. Expected an object with a "url" property.');
     }
     let url = params.url;
-    let newWindow = params.newWindow;
-    if (context.ekoConfig.workingWindowId) {
-      newWindow = false;
-    } else if (!newWindow && !context.variables.get('windowId') && !context.variables.get('tabId')) {
-      // First mandatory opening of a new window
-      newWindow = true;
-    }
+    let newWindow = false;
+    // let newWindow = params.newWindow;
+    // if (context.ekoConfig.workingWindowId) {
+    //   newWindow = false;
+    // } else if (!newWindow && !context.variables.get('windowId') && !context.variables.get('tabId')) {
+    //   // First mandatory opening of a new window
+    //   newWindow = true;
+    // }
     let tab: chrome.tabs.Tab;
     if (newWindow) {
       tab = await open_new_tab(url, true);

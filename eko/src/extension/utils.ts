@@ -113,10 +113,18 @@ export async function open_new_tab(
       const window = await chrome.windows.getCurrent();
       windowId = window.id;
     }
-    let tab = await chrome.tabs.create({
-      url: url,
-      windowId: windowId,
-    });
+
+    let tabs = await chrome.tabs.query({})
+    let tab = tabs.find(t => t.url.includes(url));
+    if (tab) {
+        let _ = await chrome.tabs.update(tab.id as number, { active: true });
+    } else {
+        if (!url.startsWith('http://') && !url.startsWith('https://')) {
+          url = 'https://' + url;
+        }
+        tab = await chrome.tabs.create({ url: url, windowId: windowId });
+    }
+
     tabId = tab.id as number;
   }
   let tab = await waitForTabComplete(tabId);

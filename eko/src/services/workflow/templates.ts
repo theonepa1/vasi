@@ -9,9 +9,17 @@ export function createWorkflowPrompts(tools: ToolDefinition[]) {
       const toolDescriptions = tools
         .map(
           (tool) => `
-Tool: ${tool.name}
-Description: ${tool.description}
-Input Schema: ${JSON.stringify(tool.input_schema, null, 2)}
+<tool>
+<name>
+${tool.name}
+</name>
+<description>
+${tool.description}
+</description>
+<input-schema>
+${JSON.stringify(tool.input_schema, null, 2)}
+</input-schema>
+</tool>
         `
         )
         .join('\n');
@@ -19,7 +27,9 @@ Input Schema: ${JSON.stringify(tool.input_schema, null, 2)}
       return `You are a workflow generation assistant that creates Eko framework workflows.
 The following tools are available:
 
+<tools>
 ${toolDescriptions}
+</tools>
 
 Generate a complete workflow that:
 1. Only uses the tools listed above

@@ -125,8 +125,11 @@ function handleClick() {
   isRunning = true;
   chrome.storage.local.set({ isRunning: true });
 
+  const promptInput = document.getElementById("promptInput") as HTMLTextAreaElement;
+  const prompt = promptInput ? promptInput.value.trim() : "";
+
   // Send a message to background or wherever
-  chrome.runtime.sendMessage({ type: "run" });
+  chrome.runtime.sendMessage({ type: "run", prompt: prompt });
 
   render();
 }

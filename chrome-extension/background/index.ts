@@ -17,7 +17,7 @@ chrome.runtime.onMessage.addListener(async function (
     try {
       // Click the RUN button to execute the main function (workflow)
       chrome.runtime.sendMessage({ type: "log", log: "Run..." });
-      await main();
+      await main(request.prompt);
     } catch (e) {
       chrome.runtime.sendMessage({
         type: "log",
