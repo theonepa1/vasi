@@ -13,6 +13,7 @@
     "declarationDir": "dist/types",
     "sourceMap": true,
     "baseUrl": ".",
+    "jsx": "react-jsx",
     "paths": {
       "@/*": ["eko/src/*", "chrome-extension/src/*"]
     }

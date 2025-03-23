@@ -1,9 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-import json from '@rollup/plugin-json';
 import copy from 'rollup-plugin-copy';
-import replace from '@rollup/plugin-replace';
 
 export default [
   // {
@@ -105,14 +103,14 @@ export default [
         }),
         copy({
           targets: [
-            { src: 'chrome-extension/public/*', dest: 'dist' },
-            { src: 'eko/src/extension/script/*', dest: 'dist/js' }
+            { src: 'eko/src/extension/script/*', dest: 'dist/js' },
+            { src: 'chrome-extension/public/*', dest: 'dist' }
           ]
         })
       ]
     },
     {
-      input: 'chrome-extension/popup/index.tsx',
+      input: 'chrome-extension/popup/index.ts',
       output: [
         {
           file: 'dist/popup.js',
@@ -130,7 +128,7 @@ export default [
       ]
     },
     {
-      input: 'chrome-extension/options/index.tsx',
+      input: 'chrome-extension/options/index.ts',
       output: [
         {
           file: 'dist/options.js',

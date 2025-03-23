@@ -5,15 +5,15 @@
   "manifest_version": 3,
   "background": {
     "type": "module",
-    "service_worker": "js/background.js"
+    "service_worker": "background.js"
   },
   "icons": {
     "16": "icon.ico",
     "48": "icon.ico",
     "128": "icon.ico"
   },
-  "action": {
-    "default_popup": "popup.html"
+  "side_panel": {
+    "default_path": "popup.html"
   },
   "options_ui": {
     "page": "options.html"
@@ -32,7 +32,8 @@
     "storage",
     "scripting",
     "activeTab",
-    "notifications"
+    "notifications",
+    "sidePanel"
   ],
   "host_permissions": [
     "<all_urls>"

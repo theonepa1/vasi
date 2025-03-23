@@ -59,9 +59,7 @@
     "openai": "^4.77.0",
     "playwright": "^1.49.1",
     "uuid": "^11.0.3",
-    "zod": "^3.22.4",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.2",

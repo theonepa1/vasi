@@ -190,9 +190,9 @@ export function sleep(time: number): Promise<void> {
 }
 
 export async function injectScript(tabId: number, filename?: string) {
-  let files = ['eko/script/common.js'];
+  let files = ['js/common.js'];
   if (filename) {
-    files.push('eko/script/' + filename);
+    files.push('js/' + filename);
   }
   await chrome.scripting.executeScript({
     target: { tabId },
