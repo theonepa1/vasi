@@ -1,6 +1,6 @@
-# Chrome Extension for Task Automation
+# Vasi: Chrome Extension for Task Automation
 
-This repository contains the code to create a Chrome extension that automates tasks using Fellou's Eko library as the base.
+This repository contains the code to create Vasi, a Chrome extension that automates tasks. It incorporates elements from Fellou's Eko library to enhance its functionality.
 
 ## How to Build This Repository
 

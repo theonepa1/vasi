@@ -1,6 +1,6 @@
 {
-  "name": "eko agent",
-  "description": "Eko Agent Extension",
+  "name": "Vasi",
+  "description": "Task Automation Extension",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
